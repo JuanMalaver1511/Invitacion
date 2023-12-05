@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación a mi grado</title>
+  <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+  <div class="invitacion">
+    <img src="img/escudo-jdc.png" class="imagen">
+    <p><b>NAIRO MALAVER Y ESTELA ECHEVERRIA.</b></p>
+    <span>Tienen el honor de invirale a la celebración de graduación de su hijo:</span>
+    <p class="cursiva">JUAN MANUEL MALAVER ECHEVERRIA</p>
+    <p>INGENIERO DE SISTEMAS</p>
+    <div class="linea">_________________________________</div>
+    <p>Lugar: Motavita</p>
+    <p>Fecha: 15/12/2023</p>
+    <p>Hora: 4:00 p.m.</p>
+    <button id="confirmarBtn">Confirmar Asistencia</button>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>¡Gracias por confirmar tu asistencia!
+            Abriendo WhatsApp...
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const btn = document.getElementById('confirmarBtn');
+    const closeBtn = document.querySelector('.close');
+
+    btn.addEventListener('click', function() {
+      modal.style.display = 'block';
+      setTimeout(function() {
+        window.location.href = "https://wa.me/573202594521?text=Hola,%20Confirmado.";
+      }, 3000);
+    });
+
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
