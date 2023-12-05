@@ -35,9 +35,20 @@
 
     btn.addEventListener('click', function() {
       modal.style.display = 'block';
-      setTimeout(function() {
-        window.location.href = "https://wa.me/573202594521?text=Hola,%20Confirmado.";
-      }, 3000);
+      
+      let nombre = prompt('Por favor, ingresa tu nombre:');
+      if (nombre !== null && nombre !== '') {
+        
+        let nombreCodificado = encodeURIComponent(nombre);
+        
+        setTimeout(function() {
+          window.location.href = `https://wa.me/573202594521?text=Nombre:%20${nombreCodificado}%20Confirmado.`;
+        }, 3000);
+      } else {
+        alert('El nombre no puede estar vacío. Por favor, ingresa tu nombre para confirmar asistencia.');
+        modal.style.display = 'none';
+      }
+
     });
 
     closeBtn.addEventListener('click', function() {
